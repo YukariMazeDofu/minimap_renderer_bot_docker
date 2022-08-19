@@ -1,0 +1,27 @@
+version: '3'
+services:
+    discordbot:
+        build:
+            context: minimap_renderer_bot
+            dockerfile: Dockerfile
+        working_dir: "/app"
+        volumes:
+            - ./.env:/app/minimap_renderer_bot/.env
+            - /etc/localtime:/etc/localtime:ro
+        environment:
+            TZ: "Asia/Tokyo"
+        restart: always
+        command: /bin/bash -c "/app/run.sh"
+        logging:
+            driver: json-file
+            options:
+                max-file: "1"
+                max-size: 10m
+    redis:
+        image: redis:alpine
+        expose:
+            - 6379
+        command: redis-server --requirepass discordbotredis
+        volumes:
+            - ./redis/data:/data
+            - ./redis/redis.conf:/etc/redis.conf
