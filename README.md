@@ -20,4 +20,5 @@ Dockered [WoWs-Builder-Team/minimap_renderer_bot: A Discord bot wrapper for Mini
 ## Update
 
 1. `docker-compose down`
-1. `docker-compose up --build -d`
+1. `docker-compose build --no-cache`
+1. `docker-compose up -d`
