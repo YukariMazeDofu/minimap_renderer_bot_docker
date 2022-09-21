@@ -14,5 +14,5 @@ RUN apt-get update  && \
     git clone https://github.com/WoWs-Builder-Team/minimap_renderer_bot.git  && \
     cd minimap_renderer_bot  && \
     /app/venv/bin/pip install git+https://github.com/WoWs-Builder-Team/minimap_renderer.git@develop  && \
-    /app/venv/bin/pip install -r requirements.txt  && \
+    /app/venv/bin/pip install -U -r requirements.txt  && \
     chmod +x /app/run.sh
