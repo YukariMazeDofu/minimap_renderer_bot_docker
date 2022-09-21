@@ -5,9 +5,7 @@ WORKDIR /app
 
 COPY ./run.sh /app/run.sh
 RUN apt-get update  && \
-    apt-get -y --no-install-recommends install software-properties-common  && \
-    add-apt-repository ppa:deadsnakes/ppa  && \
-    apt-get -y --no-install-recommends install git supervisor python3.10  && \
+    apt-get -y --no-install-recommends install git supervisor && \
     apt-get clean  && \
     rm -rf /var/lib/apt/lists/*  && \
     cd /app  && \
