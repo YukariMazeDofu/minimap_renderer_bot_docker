@@ -15,6 +15,6 @@ RUN apt-get update  && \
     sed -i "s/minimap-renderer==0.0.3/minimap-renderer/" requirements.txt  && \
     sed -i "s/numpy==1.23.1/numpy/" requirements.txt  && \
     /app/venv/bin/python3.10 -m pip install --upgrade pip  && \
-    /app/venv/bin/pip install --upgrade --force-reinstall git+https://github.com/WoWs-Builder-Team/minimap_renderer.git@develop  && \
+    /app/venv/bin/pip install --upgrade --force-reinstall git+https://github.com/WoWs-Builder-Team/minimap_renderer.git  && \
     /app/venv/bin/pip install -U -r requirements.txt  && \
     chmod +x /app/run.sh
