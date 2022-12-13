@@ -1,15 +1,13 @@
 version: '3'
 services:
     discordbot:
+        env_file: .env
         build:
-            context: minimap_renderer_bot
+            context: track
             dockerfile: Dockerfile
         working_dir: "/app"
         volumes:
-            - ./.env:/app/minimap_renderer_bot/.env
-            - /etc/localtime:/etc/localtime:ro
-        environment:
-            TZ: "Asia/Tokyo"
+            - ./secrets.ini:/app/track/secrets.ini
         restart: always
         command: /bin/bash -c "/app/run.sh"
         logging:

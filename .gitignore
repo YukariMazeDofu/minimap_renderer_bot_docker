@@ -1,2 +1,3 @@
-.env
-redis/data/*
+/.env
+/secrets.ini
+/redis/data/*
