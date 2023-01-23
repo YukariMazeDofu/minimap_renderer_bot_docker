@@ -1,0 +1,26 @@
+diff --git a/bot/extensions/render.py b/bot/extensions/render.py
+index 757bdb1..45c4215 100644
+--- a/bot/extensions/render.py
++++ b/bot/extensions/render.py
+@@ -21,7 +21,7 @@ from bot.utils import errors, functions
+ from config import cfg
+ 
+ logger = logging.getLogger("track")
+-_url = f"redis://:{cfg.redis.password}@localhost:{cfg.redis.port}/"
++_url = f"redis://:{cfg.redis.password}@{cfg.redis.host}:{cfg.redis.port}/"
+ _redis: redis.Redis = redis.from_url(_url)
+ _async_redis: aioredis.Redis = aioredis.from_url(_url)
+ 
+diff --git a/requirements.txt b/requirements.txt
+index b5d19a4..777eb6c 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -11,7 +11,7 @@ discord.py>=2.0.0
+ environ-config>=22.1.0
+ greenlet>=2.0.1
+ jishaku>=2.5.0
+-Pillow>=9.4.0
++Pillow>=9.2.0
+ polib>=1.1.1
+ psutil>=5.9.2
+ redis>=4.3.4
